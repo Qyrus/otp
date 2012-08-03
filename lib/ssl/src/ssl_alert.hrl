@@ -43,11 +43,12 @@
 %%       record_overflow(22),
 %%       decompression_failure(30),
 %%       handshake_failure(40),
+%%       no_certificate(41),
 %%       bad_certificate(42),
 %%       unsupported_certificate(43),
 %%       certificate_revoked(44),
 %%       certificate_expired(45),
-   %%       certificate_unknown(46),
+%%       certificate_unknown(46),
 %%       illegal_parameter(47),
 %%       unknown_ca(48),
 %%       access_denied(49),
@@ -69,6 +70,7 @@
 -define(RECORD_OVERFLOW, 22).
 -define(DECOMPRESSION_FAILURE, 30).
 -define(HANDSHAKE_FAILURE, 40).
+-define(NO_CERTIFICATE, 41).
 -define(BAD_CERTIFICATE, 42).
 -define(UNSUPPORTED_CERTIFICATE, 43).
 -define(CERTIFICATE_REVOKED, 44).
