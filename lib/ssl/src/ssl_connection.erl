@@ -2210,6 +2210,12 @@ handle_alert(#alert{level = ?WARNING, description = ?NO_RENEGOTIATION} = Alert, 
     {Record, State} = next_record(State0),
     next_state(StateName, connection, Record, State);
 
+handle_alert(#alert{level = ?WARNING, description = ?NO_CERTIFICATE} = Alert, StateName, 
+	     #state{log_alert = Log, from = From, role = Role} = State) ->
+    log_alert(Log, StateName, Alert),
+    alert_user(From, Alert, Role),
+    {stop, normal, State};
+
 handle_alert(#alert{level = ?WARNING, description = ?USER_CANCELED} = Alert, StateName, 
 	     #state{log_alert = Log} = State0) ->
     log_alert(Log, StateName, Alert),
